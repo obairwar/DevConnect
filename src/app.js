@@ -3,7 +3,7 @@
 
 
 //creating routes and rout handlers
-
+//this will match all the HTTP mehod API calls to /test
  app.use("/test",(req,res)=>{
     res.send("hello from the /test ");
  });
@@ -15,8 +15,24 @@
     res.send("hello from the new tab");
  });
 
-  app.use("/",(req,res)=>{
-    res.send("hello from dashboard");
+//   app.use("/",(req,res)=>{
+//     res.send("hello from dashboard");
+//  });
+
+
+ //this will only handle GET call to /user
+ app.get("/user",(req,res)=>{
+   res.send({firstName:"ubair",lastName:"war"});
+ });
+ 
+ app.post("/user",(req,res)=>{
+   //saved data to the DB
+   res.send("Data successfully saved to the database!");
+
+ });
+
+ app.delete("/user",(req,res)=>{
+   res.send("user deleted successfully!");
  });
 
 
@@ -25,4 +41,4 @@
 
  });
 
- 
+  

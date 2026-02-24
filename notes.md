@@ -11,4 +11,7 @@ lec 1
 - what is the use of "-g" while npm install
 - difference between caret and tilde (^ vs ~)
 
+lec 2
+- create a git repo. and push all odeto git repo
+- 
 
