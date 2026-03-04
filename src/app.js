@@ -1,6 +1,8 @@
  const express= require("express");
  const app= express();
 
+
+//app.use("/route", rH1, [rH2,rH3],rh$, rh5);
 app.use("/user",(req,res,next)=>{
    console.log("route handler 1");
    // res.send("response 1");
