@@ -2,32 +2,35 @@
  const app= express();
 const {adminAuth,userAuth}= require("./middlewares/auth");
 
-//middleware for admin
-app.use("/admin",adminAuth);
-
-app.get("/admin/allData",(req,res,next)=>{
-   res.send("all data fetched successfully!");
-});
-app.get("/admin/deleteData",(req,res,next)=>{
-   res.send("user data deleted successfully !");
+app.use("/",(err,req,res,next)=>{
+   if(err){
+      //log your error
+      res.status(500).send("something went wrong!");
+   }
 });
 
-
-
-
-app.post("/user/login",(req,res,next)=>{
-   res.send("User logged in successfully !");
-});
-
-//suth for the specific function => 
-app.get("/user/data",userAuth,(req,res,next)=>{
-   res.send("data send successfully !");
+app.get("/userData",(req,res)=>{
+   // try{
+   //    //logic of DB call and get user data
+      throw new Error("hfkjafknkjhsaf");
+   // }catch(err){
+   //    res.status(500).send("some error contact the support team")
+   // }
 })
 
 
+//always write it in the last of the code 
+// widlcard error handler
+app.use("/",(err,req,res,next)=>{
+   if(err){
+      //log your error
+      res.status(500).send("something went wrong!");
+   }
+});
  app.listen(7777,()=>{
     console.log("server is successfully listenining on port 7777...");
 
  });
  
+
  
