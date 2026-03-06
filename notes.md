@@ -34,3 +34,15 @@ lec 3 - E05
 - write a dummy auth middleware for admin
 - write a dummy auth middle for all user routes , except /user/login
 
+lec 4 - E06
+- create a free cluster on MongoDB official website (Mongo Atlas)
+- install mongoose library
+- connect your application to the Database <"Connectiob-url"/devConnect> 
+- call the connectDB function and connect t o database before starting application on 7777
+- create a userSchema and user module
+- create POST/sihnup API to add sata to database
+- Push some documents using API calls from postman
+- Error handling using try,catch
+
+
+mongodb+srv://ubair:ubairwar@cluster0.hekoe9v.mongodb.net/
