@@ -44,5 +44,3 @@ lec 4 - E06
 - Push some documents using API calls from postman
 - Error handling using try,catch
 
-
-mongodb+srv://ubair:ubairwar@cluster0.hekoe9v.mongodb.net/
