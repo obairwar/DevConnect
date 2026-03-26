@@ -46,4 +46,6 @@ lec 4 - E06
 
 
 lec 5 - E07
--difference b/w JSON object and the JS object
+- difference b/w JSON object and the JS object
+- add the express.json middleware to your app
+- make your signup API dynamic to recieve data from the end user
