@@ -1,7 +1,7 @@
 lec 1 -E02
 - create a repository 
 - initizlize the repository
-- nde_modules,package.json , package-lock.json
+- node_modules,package.json , package-lock.json
 - install express
 - create a server
 - listen to port 777
@@ -17,7 +17,7 @@ lec 2 - E03
 - routes and route handlers 
 - install postman and make a workspace /collection , test API calls
 - handles => GET, POST , PATCH , DELETE API CALLS and test them on postman 
-- ecplore routing and use of ? ,= , () , * , in the routing 
+- explore routing and use of ? ,= , () , * , in the routing 
 - use of regex in the routes  /a/,/.*fly$/
 - reading the query params in the routes
 - reading the dyamic routes 
@@ -44,3 +44,6 @@ lec 4 - E06
 - Push some documents using API calls from postman
 - Error handling using try,catch
 
+
+lec 5 - E07
+-

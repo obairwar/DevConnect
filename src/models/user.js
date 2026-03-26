@@ -1,6 +1,6 @@
 const mongoose= require("mongoose");
 
-const userSchema= new mongoose.Schema({
+const userSchema= new mongoose.Schema({  
     firstName:{
         type:String,
     },
@@ -20,5 +20,9 @@ const userSchema= new mongoose.Schema({
         type:String,
     }
 });
+
+//creating the userModel(name of the model and the schema which we will pass)=> then exporting the  model
+//const User=mongoose.model("User",userSchema);
+//model.exports=User;
 
 module.exports= mongoose.model("User",userSchema);
