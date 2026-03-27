@@ -49,3 +49,7 @@ lec 5 - E07
 - difference b/w JSON object and the JS object
 - add the express.json middleware to your app
 - make your signup API dynamic to recieve data from the end user
+- user.findOne with duplicate emailId's which object will be returned
+- API  - get use by email
+- API - feed api - get/feed - get all the users room the database 
+- API - get user by ID
