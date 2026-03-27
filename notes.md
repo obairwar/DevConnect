@@ -53,3 +53,10 @@ lec 5 - E07
 - API  - get use by email
 - API - feed api - get/feed - get all the users room the database 
 - API - get user by ID
+- difference between patch and put 
+- API - update a user
+- explore the mongoose documentation for model methods 
+- what are options in a model.findOneAndUpdate methodd, explore more about it
+- API - update the user with email ID
+- 
+
