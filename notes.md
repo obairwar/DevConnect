@@ -68,7 +68,9 @@ lec 6 - E08
 - improve the DB schema - PUT all appopirate valiadation on each field in Schema
 - add timestamp to the userSchema
 - add Api leval validation on Patch request & Signup post api
-- DATA SANITIZING =>Add API validation for each field
+- DATA SANITIZING =>Add API validation for each field 
+- install validator
+- explore validator library functionand use validatoe funcs for password, email ,and photo url
 
 
 
