@@ -71,6 +71,9 @@ lec 6 - E08
 - DATA SANITIZING =>Add API validation for each field 
 - install validator
 - explore validator library functionand use validatoe funcs for password, email ,and photo url
+- NEVER TRUST req.body
 
+lec-07 -E09
+- 
 
 
