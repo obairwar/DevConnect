@@ -58,5 +58,16 @@ lec 5 - E07
 - explore the mongoose documentation for model methods 
 - what are options in a model.findOneAndUpdate methodd, explore more about it
 - API - update the user with email ID
-- 
+-
+
+lec 6 - E08
+- explore schematypw options from the documentation 
+- add required,unoque,lowercase,min,minLength,trim
+- add default
+- create a custom validation dunction for gender
+- improve the DB schema - PUT all appopirate valiadation on each field in Schema
+- add timestamp to the userSchema
+
+
+
 
