@@ -2,21 +2,37 @@
  const connectDB=require("./config/database");
  const app= express();
  const User=require("./models/user");
+ const {validateSignUpData}=require("./utils/validation")
+ const bcrypt=require("bcrypt");
 
  app.use(express.json());
 
-
-//adding the data=>
  app.post("/signup",async (req,res)=>{ 
-    
-   // creating a new instance of the User model
-   const user= new User(req.body);
-
+   //validation of data
    try{
+      validateSignUpData(req);
+
+   // Encrypt the password 
+      const {firstName,lastName,emailId,password}=req.body;
+      const passwordHash=await bcrypt.hash(password,10);
+      console.log(passwordHash);
+
+
+
+   // creating a new instance of the User model
+   const user= new User({
+      firstName,
+      lastName,
+      emailId,
+      password:passwordHash,
+
+   });
+
+   
       await user.save();   //saving the user in the database => the function returns a promise=> so using async and await
       res.send("user added successfully !!");
    }catch(err){
-      res.status(400).send("Error saving the user: "+ err.message);
+      res.status(400).send("Error : "+ err.message);
 
    }
  });
@@ -26,7 +42,7 @@
 //    const userEmail=req.body.email;
 
 //    try{
-//       const users=await User.find({email:userEmail});
+//       const users=await User.find({emailId:userEmail});
 //       if(users.length === 0){
 //          res.status(404).send("user not found");
 //       }else{
@@ -41,9 +57,9 @@
 
 //get only one user
 app.get("/user",async(req,res)=>{
-   const userEmail= req.body.email;
+   const userEmailId= req.body.email;
    try{
-      const user= await User.findOne({email:userEmail});
+      const user= await User.findOne({emailId:userEmail});
       res.send(user);
 
    }catch{

@@ -40,7 +40,7 @@ lec 4 - E06
 - connect your application to the Database <"Connectiob-url"/devConnect> 
 - call the connectDB function and connect t o database before starting application on 7777
 - create a userSchema and user module
-- create POST/sihnup API to add sata to database
+- create POST/signup API to add sata to database
 - Push some documents using API calls from postman
 - Error handling using try,catch
 
@@ -61,7 +61,7 @@ lec 5 - E07
 -
 
 lec 6 - E08
-- explore schematypw options from the documentation 
+- explore schematype options from the documentation 
 - add required,unoque,lowercase,min,minLength,trim
 - add default
 - create a custom validation dunction for gender
@@ -74,6 +74,9 @@ lec 6 - E08
 - NEVER TRUST req.body
 
 lec-07 -E09
-- 
+- Validate data in signup API
+- install bcrypt package
+- create PasswordHash using bcrypt.hash & save the user with encripted password ..
+
 
 
