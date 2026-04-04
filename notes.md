@@ -77,6 +77,7 @@ lec-07 -E09
 - Validate data in signup API
 - install bcrypt package
 - create PasswordHash using bcrypt.hash & save the user with encripted password ..
-
+- create thee login API
+- compare password and throw errors if emailor password is invalid
 
 
