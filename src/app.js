@@ -6,6 +6,7 @@
  const bcrypt=require("bcrypt");
  const cookieParser=require("cookie-parser");
  const jwt=require("jsonwebtoken");
+ const {userAuth}=require("./middlewares/auth");
 
  app.use(express.json());
  app.use(cookieParser());
@@ -54,7 +55,6 @@ app.post("/login",async(req,res)=>{
       if(isPasswordValid){
          //create a JWt token
          const token= await jwt.sign({_id:user.id},"DEV@Tinder$790");
-         console.log(token);
 
          //addd the token to cookie and send the response back to the user
          res.cookie("token",token);
@@ -68,51 +68,11 @@ app.post("/login",async(req,res)=>{
    }
 )
 
-
-// Get user by email
-// app.get("/user", async (req,res)=>{
-//    const userEmail=req.body.email;
-
-//    try{
-//       const users=await User.find({emailId:userEmail});
-//       if(users.length === 0){
-//          res.status(404).send("user not found");
-//       }else{
-//          res.send(users);
-//       }
-
-//    }catch(err){
-//       res.status(400).send("something went wrong!");
-//    }
-// });
-
-
-//get only one user
-app.get("/user",async(req,res)=>{
-   const userEmailId= req.body.email;
-   try{
-      const user= await User.findOne({emailId:userEmailId});
-      res.send(user);
-
-   }catch{
-         res.status(400).send("something went wrong!");
-
-   }
-});
-
-app.get("/profile",async (req,res)=>{
+app.get("/profile",userAuth,async (req,res)=>{
       try{
-      const cookies=req.cookies;
-
-      const {token}=cookies;
-      if(!token){
-            throw new Error("invalid error...");
-      }
-      
-      const decodedMessage=await jwt.verify(token,"DEV@Tinder$790");
-      //console.log(decodedMessage)   { _id: '69d69d6074ea15af4afcf82e', iat: 1775673111 }
-      const {_id}=decodedMessage;
-      const user= await User.findById(_id);
+         const user=req.user;
+         
+         res.send(user);
 
       if(!user){
          throw new Error("user not found...");
@@ -125,68 +85,18 @@ app.get("/profile",async (req,res)=>{
    }
 });
 
+app.post("/sendConnectionRequest",userAuth, async (req,res,next)=>{
+   const user=req.user;
+   //sending a connection request ...
+   console.log("sending a connection request..");
 
-//FEED API => GET/feed - get all the users from the database
-app.get("/feed",async (req,res)=>{
-   try{
-      const users= await User.find({});  //empty filter will get us all the documents from the filter
-      res.send(users);
-
-   }catch(err){
-         res.send(400).send("something went wrong!");
-   }
+   // res.send("connection request send...");
+   res.send(User.firstName + " send a connection request !");
 
 })
 
-//delete a used from the database 
-app.delete("/user",async (req,res)=>{
-   const userId=req.body.userId;
-   try{
-      //const user= await User.findByIdAndDelete({_id:userId}) 
-      const user= await User.findByIdAndDelete(userId);
-      res.send("user deleted succussfully !");
-
-   }catch(err){
-      res.status(400).send("Something went wrong! ");
-
-   }
-})
 
 
-
-//update data of the user
-app.patch("/user/:userId",async (req,res)=>{
-   const userId=req.params.userId;
-   // const userId= req.body.userId;
-   const data=req.body;
-   try{
-      
-      const ALLOWED_UPDATES=["photoUrl","about","age","skills"];
-      const isUpdateAllowed=Object.keys(data).every((k)=>
-            ALLOWED_UPDATES.includes(k)
-   );
-   if(!isUpdateAllowed){
-      throw new Error("update not allowed!");
-   }
-   if(data?.skills.length>10){
-      throw new Error ("skills cannot be more than 10");
-   }
-
-
-      const user=await User.findByIdAndUpdate({_id:userId},data,{
-         returnDocument:"after", //before and after
-         runValidators:true,
-      });
-      console.log(user);
-      res.send("User updated succussfully !");
-
-   }catch(err){
-      res.status(400).send("something went wrong :   "+err.message);
-   }
-})
-
-
- //once the database is connected successfully then we will start the server
 connectDB()
  .then(()=>{
    console.log("Database connection established...");
