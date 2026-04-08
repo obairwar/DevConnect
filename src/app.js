@@ -4,8 +4,11 @@
  const User=require("./models/user");
  const {validateSignUpData}=require("./utils/validation")
  const bcrypt=require("bcrypt");
+ const cookieParser=require("cookie-parser");
+ const jwt=require("jsonwebtoken");
 
  app.use(express.json());
+ app.use(cookieParser());
 
  app.post("/signup",async (req,res)=>{ 
    //validation of data
@@ -37,27 +40,33 @@
    }
  });
 
-app.post("/login",async (req,res)=>{
-   try{
-      const {emailId,password}=req.body;
-      const user=await User.findOne({emailId:emailId});
-      if(!user){
-         throw new Error("invalid credentials...");
-      }
-      const isPasswordValid=-await bcrypt.compare(password,user.password);
+app.post("/login",async(req,res)=>{
+      try{
+      const {emailId,password}= req.body;
+
+      const user= await User.findOne({emailId:emailId});
       
-      if(isPasswordValid){
-         res.send("login successfully...")
-      }else{
-         throw new Error("invalid credentials...");
+      if(!user){
+         throw new Error ("invalid credientials...");
       }
+      const isPasswordValid=await bcrypt.compare(password,user.password);
 
-   }catch(err){
-         res.status(400).send("error : "+err.message);
+      if(isPasswordValid){
+         //create a JWt token
+         const token= await jwt.sign({_id:user.id},"DEV@Tinder$790");
+         console.log(token);
 
+         //addd the token to cookie and send the response back to the user
+         res.cookie("token",token);
+         res.send("login succussfully ..");
+         }else{
+            throw new Error("Invalid credientials...");
+         }
+      }catch(err){
+         res.status(400).send("ERROR: "+ err.message);
+      }
    }
-})
-
+)
 
 
 // Get user by email
@@ -91,7 +100,30 @@ app.get("/user",async(req,res)=>{
    }
 });
 
+app.get("/profile",async (req,res)=>{
+      try{
+      const cookies=req.cookies;
 
+      const {token}=cookies;
+      if(!token){
+            throw new Error("invalid error...");
+      }
+      
+      const decodedMessage=await jwt.verify(token,"DEV@Tinder$790");
+      //console.log(decodedMessage)   { _id: '69d69d6074ea15af4afcf82e', iat: 1775673111 }
+      const {_id}=decodedMessage;
+      const user= await User.findById(_id);
+
+      if(!user){
+         throw new Error("user not found...");
+      }
+
+      res.send(user);
+   }catch{
+         res.status(400).send("something went wrong!");
+
+   }
+});
 
 
 //FEED API => GET/feed - get all the users from the database
@@ -163,14 +195,8 @@ connectDB()
       })
    })
    .catch((err)=>{
-      console.log("Database cannot be connected ...");
-   })
- ;
-
- app.listen(7777,()=>{
-   console.log("database connected succussfully !");
- });
-
+      console.log("Database cannot be connected ..." +err.message);
+   });
  
 
   

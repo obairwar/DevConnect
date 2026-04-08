@@ -65,7 +65,7 @@ lec 6 - E08
 - add required,unoque,lowercase,min,minLength,trim
 - add default
 - create a custom validation dunction for gender
-- improve the DB schema - PUT all appopirate valiadation on each field in Schema
+- improve the DB schema - PUT all appopirate valiadation on each field  in Schema
 - add timestamp to the userSchema
 - add Api leval validation on Patch request & Signup post api
 - DATA SANITIZING =>Add API validation for each field 
@@ -78,7 +78,13 @@ lec-07 -E09
 - install bcrypt package
 - create PasswordHash using bcrypt.hash & save the user with encripted password ..
 - create thee login API
-- compare password and throw errors if emailor password is invalid
+- compare password and throw errors if email or password is invalid
 
-change
 
+lec 08- E10
+-install cookie-parse
+-send a dummy cookie to user
+- create GET / profile API and check if you get the cookie back
+-install jsonwebtoken
+-IN login API , after email and password validation , create the JWT token and sent it to user in cookie
+- read the cookies inside your profile API and find the logged in user
