@@ -91,3 +91,5 @@ lec 08- E10
 - userAuth middleware
 - add the userAuth middle ware in profile API and a new sendConnectionRequest API
 - set the expiry of JWT token and cookies to 7 days
+-create usserSchema method to getJWT()
+- create userSchema method to comparepassword(passwordInputBYUser)
