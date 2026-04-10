@@ -93,3 +93,9 @@ lec 08- E10
 - set the expiry of JWT token and cookies to 7 days
 -create usserSchema method to getJWT()
 - create userSchema method to comparepassword(passwordInputBYUser)
+
+
+lec 09 - E11
+- Explore tinder API's
+- create a list of all API you can thin f in Dev Tinder
+- Group multiple routes under repetive routers
