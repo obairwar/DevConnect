@@ -99,3 +99,7 @@ lec 09 - E11
 - Explore tinder API's
 - create a list of all API you can thin f in Dev Tinder
 - Group multiple routes under repetive routers
+- read documentation for express.Router
+- create routes folder for managing auth, profile, request routers
+- reate authrouter , profileRouter, requestRouter 
+- import these routers in app.ja
