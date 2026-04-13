@@ -103,3 +103,7 @@ lec 09 - E11
 - create routes folder for managing auth, profile, request routers
 - reate authrouter , profileRouter, requestRouter 
 - import these routers in app.ja
+- create post/logout API
+- create PATCH/profile/edit API
+- create PATCH/profile/password API => forget password API
+- make you validate all data in every POST , PATCH API's
