@@ -121,3 +121,7 @@ lec 10 - E12
 - what is the advantages and disadvantages of creating indexes?
 - read the article aboout compound indexes
 - ALWAYS THINK ABOUT CORNER CASES
+
+lec 11- E13
+ - write code with proper validations for POST/requesr/review/:status/:requestId
+ - thought process - POST vs GET

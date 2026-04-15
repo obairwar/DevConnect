@@ -2,6 +2,7 @@ const mongoose= require("mongoose");
 const validator=require("validator");
 const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken");
+const connectionRequest= require("./connectionRequest")
 
 
 const userSchema= new mongoose.Schema(
@@ -72,7 +73,8 @@ const userSchema= new mongoose.Schema(
     }
 );
 
-connectionRequestSchema.index({fromUserId:1, toUserId:1}); //Compound index 
+connectionRequest.schema.index({fromUserId:1, toUserId:1}); //Compound index 
+//faced error here => need to write 's' of Schema in lowercase ??why?
 
 userSchema.methods.getJWT=async function(){ //don't use arrow fn here
     const user=this;
