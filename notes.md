@@ -107,3 +107,17 @@ lec 09 - E11
 - create PATCH/profile/edit API
 - create PATCH/profile/password API => forget password API
 - make you validate all data in every POST , PATCH API's
+
+
+lec 10 - E12
+- create connection request API
+- send connection request API
+- proper validation of Data
+- think about all corner cases
+- $or query $and query and other queries.....in mongoose 
+- schema.pre("save") function
+- read more about indexes in MongoDb
+- why do we need index in DB?
+- what is the advantages and disadvantages of creating indexes?
+- read the article aboout compound indexes
+- ALWAYS THINK ABOUT CORNER CASES

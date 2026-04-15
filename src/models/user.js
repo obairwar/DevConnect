@@ -18,7 +18,7 @@ const userSchema= new mongoose.Schema(
         emailId:{
             type:String,
             required:true,
-            unique:true,
+            unique:true, //MongoDb actomatically creates the index => unique:true
             lowercase:true,
             trim:true,
             validate(value){
@@ -71,6 +71,8 @@ const userSchema= new mongoose.Schema(
         timestamps:true,
     }
 );
+
+connectionRequestSchema.index({fromUserId:1, toUserId:1}); //Compound index 
 
 userSchema.methods.getJWT=async function(){ //don't use arrow fn here
     const user=this;
