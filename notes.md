@@ -125,3 +125,5 @@ lec 10 - E12
 lec 11- E13
  - write code with proper validations for POST/requesr/review/:status/:requestId
  - thought process - POST vs GET
+ - read about ref and populate 
+ - create GET/user/requests/recieved with all the checks
