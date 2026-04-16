@@ -133,4 +133,13 @@ lec 11- E13
 lec 12- E14
 - logic for GET/ feed API
 - explore the $nin , $ans , $ne and other query operatorators
--
+- pagination ,.skip() & .limit()
+
+
+- /feed?page=1&limit=10 => first 10 users 1-10 .skip(0).limit(10)
+- /feed?page=2&limit=10 => 11-20 .skip(10).limit(10);
+- /feed?page=3&limit=10 => 21-30 .skip(20).limit(10);
+
+- skip = (page-1)*limit 
+
+
