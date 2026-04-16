@@ -28,8 +28,8 @@ STATUS: ignore,intrested, accepted,rejected
 
 
 ## userRouter
+- GET/user/requests/recieved
 - GET/user/connetions
-- GET/user/requests
 - GET/user/feed - Gets you the profiles of other users on platform
 
 
