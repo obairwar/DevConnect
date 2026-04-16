@@ -123,7 +123,14 @@ lec 10 - E12
 - ALWAYS THINK ABOUT CORNER CASES
 
 lec 11- E13
- - write code with proper validations for POST/requesr/review/:status/:requestId
+ - write code with proper validations for POST/request/review/:status/:requestId
  - thought process - POST vs GET
  - read about ref and populate 
  - create GET/user/requests/recieved with all the checks
+
+
+
+lec 12- E14
+- logic for GET/ feed API
+- explore the $nin , $ans , $ne and other query operatorators
+-
