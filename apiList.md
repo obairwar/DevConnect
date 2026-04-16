@@ -29,7 +29,7 @@ STATUS: ignore,intrested, accepted,rejected
 
 ## userRouter
 - GET/user/requests/recieved
-- GET/user/connetions
+- GET/user/connetions // who is connected to me?
 - GET/user/feed - Gets you the profiles of other users on platform
 
 
