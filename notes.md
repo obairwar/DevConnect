@@ -143,3 +143,6 @@ lec 12- E14
 - skip = (page-1)*limit 
 
 
+
+- installed cors
+- sended back the user- in the login api

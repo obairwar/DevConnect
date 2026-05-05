@@ -32,7 +32,6 @@ const userSchema= new mongoose.Schema(
             type:String,
             required:true,
             validate(value){
-                console.log("validator running ");
                 if(!validator.isStrongPassword(value)){
                     throw new Error("not a strong password !"+value);
                 }
@@ -47,7 +46,7 @@ const userSchema= new mongoose.Schema(
 
             enum:{
                 values:["male","female","other"],
-                message:`{VALUE} id mot a valif gender type`,
+                message:`{VALUE} id not a valid gender type`,
             },
 
             // validate(value){
