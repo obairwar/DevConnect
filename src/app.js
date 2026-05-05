@@ -5,7 +5,10 @@
  const jwt=require("jsonwebtoken");
  const cors=require("cors")
  
- app.use(cors());
+ app.use(cors({
+   origin:"http://localhost:5173/login",// whitelists the frotEnd,,, tells us where the frontend is hosted 
+   credentials:true,
+ }));
  app.use(express.json());
  app.use(cookieParser());
 
